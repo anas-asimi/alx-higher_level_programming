@@ -3,7 +3,11 @@
 
 #include <stdlib.h>
 
-
+/**
+ * struct listint_s - struct listint_s.
+ * @n: n
+ * @next: next
+ */
 typedef struct listint_s
 {
 	int n;
