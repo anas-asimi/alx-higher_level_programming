@@ -29,17 +29,18 @@ class Square:
         """
         return (self.__size**2)
 
+    @property
     def size(self):
-        """returns the current square size
+        """getter of __size
         Args: None
         Returns: None
         """
         return (self.__size)
 
+    @size.setter
     def size(self, value):
-        """returns the current square size
-        Args:
-            value (int): size of a side of the square
+        """setter of __size
+        Args: value (int): size of a side of the square
         Returns: None
         """
         if type(value) is int:
