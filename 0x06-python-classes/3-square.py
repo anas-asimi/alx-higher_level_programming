@@ -21,3 +21,10 @@ class Square:
                 raise ValueError('size must be >= 0')
         else:
             raise TypeError('size must be an integer')
+
+    def area(self):
+        """returns the current square area
+        Args: None
+        Returns: None
+        """
+        return (self.__size**2)
