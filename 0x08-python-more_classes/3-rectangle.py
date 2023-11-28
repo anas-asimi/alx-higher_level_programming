@@ -54,6 +54,6 @@ class Rectangle:
         """returns printable string representation of the rectangle"""
         string = ""
         if self.__width > 0 and self.__height > 0:
-            string += "".join("#" * self.__width) + "\n"
+            string += "#" * self.__width + "\n"
             string *= self.__height
         return string
