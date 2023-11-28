@@ -54,6 +54,9 @@ class Rectangle:
         """returns printable string representation of the rectangle"""
         string = ""
         if self.__width > 0 and self.__height > 0:
-            string += "#" * self.__width + "\n"
-            string *= self.__height
+            for i in range(self.height):
+                for j in range(self.__width):
+                    string += '#'
+                if (i+1) != self.height:
+                    string += '\n'
         return string
