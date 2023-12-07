@@ -22,4 +22,4 @@ class Student:
         """function"""
         self.first_name = json['first_name']
         self.last_name = json['last_name']
-        self.age = ['age']
+        self.age = json['age']
