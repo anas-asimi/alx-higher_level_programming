@@ -88,10 +88,24 @@ class Rectangle(Base):
 
     def display(self):
         """ display """
+        for n in range(self.y):
+            print()
         for row in range(self.height):
+            print(' ' * self.x, end='')
             print('#' * self.width)
 
     def __str__(self):
         """ __str__ """
         return ('[Rectangle] ({}) {}/{} - {}/{}'
                 .format(self.id, self.x, self.y, self.width, self.height))
+
+    def update(self, *args):
+        """ update """
+        keys = ['width', 'height', 'x', 'y']
+        if args and len(args) > 0:
+            if args[0] is None:
+                self.__init__(self.width, self.height, self.x, self.y)
+            else:
+                self.id = args[0]
+            for i in range(0, len(args) - 1):
+                setattr(self, keys[i], args[i + 1])

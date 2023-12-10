@@ -63,6 +63,21 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(str(r1), '[Rectangle] (12) 2/1 - 4/6')
         self.assertEqual(str(r2), '[Rectangle] ({}) 1/0 - 5/5'.format(r2.id))
 
+    def test_update(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.id = 1
+        self.assertEqual(str(r1), '[Rectangle] (1) 10/10 - 10/10')
+        r1.update(89)
+        self.assertEqual(str(r1), '[Rectangle] (89) 10/10 - 10/10')
+        r1.update(89, 2)
+        self.assertEqual(str(r1), '[Rectangle] (89) 10/10 - 2/10')
+        r1.update(89, 2, 3)
+        self.assertEqual(str(r1), '[Rectangle] (89) 10/10 - 2/3')
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(str(r1), '[Rectangle] (89) 4/10 - 2/3')
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r1), '[Rectangle] (89) 4/5 - 2/3')
+
 
 if __name__ == '__main__':
     unittest.main()
