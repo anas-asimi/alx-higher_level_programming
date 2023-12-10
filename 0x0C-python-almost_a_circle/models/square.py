@@ -41,7 +41,6 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """ update """
         keys = ['size', 'x', 'y']
-
         if args and len(args) > 0:
             if args[0] is None:
                 self.__init__(self.size, self.x, self.y)
@@ -49,7 +48,6 @@ class Square(Rectangle):
                 self.id = args[0]
             for i in range(0, min(len(args) - 1, 3)):
                 setattr(self, keys[i], args[i + 1])
-
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "id":
