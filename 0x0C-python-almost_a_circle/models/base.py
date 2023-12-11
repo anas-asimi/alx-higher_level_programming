@@ -42,12 +42,25 @@ class Base:
             pass
         elif type(list_objs) is list and len(list_objs) > 0:
             file_name = list_objs[0].__class__.__name__ + '.json'
-            list_dicts = [x.to_dictionary() for x in list_objs]
+            list_dictionaries = [x.to_dictionary() for x in list_objs]
             with open(file_name, 'w', encoding='utf-8') as f:
-                f.write(cls.to_json_string((list_dicts)))
+                f.write(cls.to_json_string((list_dictionaries)))
 
     @classmethod
     def create(cls, **dictionary):
         """ create """
         r = cls(**dictionary)
         return (r)
+
+    @classmethod
+    def load_from_file(cls):
+        """ load_from_file """
+        file_name = cls.__name__ + '.json'
+        try:
+            with open(file_name, 'r') as f:
+                json_string = f.read()
+                list_dictionaries = cls.from_json_string(json_string)
+                list_objs = [cls.create(**x) for x in list_dictionaries]
+                return (list_objs)
+        except FileNotFoundError as err:
+            return ([])
