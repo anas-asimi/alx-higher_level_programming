@@ -16,10 +16,10 @@ class Base:
         Args:
             id (_type_, optional): _description_. Defaults to None.
         """
-        Base.__nb_objects += 1
         if id is not None:
             self.id = id
         else:
+            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     @staticmethod
