@@ -39,8 +39,13 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ create """
-        r = cls(**dictionary)
-        return (r)
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new = cls(1, 1)  # type: ignore
+            else:
+                new = cls(1)
+            new.update(**dictionary)  # type: ignore
+            return new
 
     @classmethod
     def save_to_file(cls, list_objs):
