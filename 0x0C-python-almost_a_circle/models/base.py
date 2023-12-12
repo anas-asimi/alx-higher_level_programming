@@ -45,13 +45,14 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ save_to_file """
-        if list_objs is None:
-            pass
-        elif type(list_objs) is list and len(list_objs) > 0:
-            file_name = cls.__name__ + '.json'
-            list_dictionaries = [obj.to_dictionary() for obj in list_objs]
-            with open(file_name, 'w', encoding='utf-8') as f:
-                f.write(cls.to_json_string((list_dictionaries)))
+        file_name = cls.__name__ + '.json'
+        with open(file_name, 'w', encoding='utf-8') as f:
+            list_dictionaries = []
+            if list_objs is None:
+                pass
+            elif type(list_objs) is list and len(list_objs) > 0:
+                list_dictionaries = [obj.to_dictionary() for obj in list_objs]
+            f.write(cls.to_json_string(list_dictionaries))
 
     @classmethod
     def load_from_file(cls):
@@ -70,24 +71,23 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """ save_to_file_csv """
-        if list_objs is None:
-            pass
-        elif type(list_objs) is list and len(list_objs) > 0:
-            file_name = cls.__name__ + '.csv'
-            list_dictionaries = [obj.to_dictionary() for obj in list_objs]
+        file_name = cls.__name__ + '.csv'
+        with open(file_name, 'w') as csvfile:
             rows = []
-            for dictionary in list_dictionaries:
-                row = [dictionary['id']]
-                if len(dictionary) == 4:
-                    row.append(dictionary['size'])
-                else:
-                    row.extend([dictionary['width'], dictionary['height']])
-                row.extend([dictionary['x'], dictionary['y']])
-                rows.append(row)
-
-            with open(file_name, 'w') as csvfile:
-                csvwriter = csv.writer(csvfile)
-                csvwriter.writerows(rows)
+            if list_objs is None:
+                pass
+            elif type(list_objs) is list and len(list_objs) > 0:
+                list_dictionaries = [obj.to_dictionary() for obj in list_objs]
+                for dictionary in list_dictionaries:
+                    row = [dictionary['id']]
+                    if len(dictionary) == 4:
+                        row.append(dictionary['size'])
+                    else:
+                        row.extend([dictionary['width'], dictionary['height']])
+                    row.extend([dictionary['x'], dictionary['y']])
+                    rows.append(row)
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerows(rows)
 
     @classmethod
     def load_from_file_csv(cls):
