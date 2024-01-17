@@ -1,2 +1,2 @@
--- Lists all the tables of a database passed as an arg
+-- Lists all tables of a database on my MySQL server.
 SHOW TABLES;

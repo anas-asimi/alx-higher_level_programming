@@ -1,4 +1,4 @@
--- list the 3 most hotests cities
+-- Displays the 3 cities with the highest average temperatures between July and August.
 SELECT `city`, AVG(`value`) AS `avg_temp`
 FROM `temperatures`
 WHERE `month` = 7 OR `month` = 8
