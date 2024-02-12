@@ -2,12 +2,12 @@
 const { argv } = require('node:process');
 
 if (argv.length < 4) {
-	console.log(0);
+  console.log(0);
 } else {
-	console.log(
-		argv
-			.map((n) => Math.floor(Number(n)))
-			.sort()
-			.reverse()[1 + 2] // 2 is the number of default in args
-	);
+  console.log(
+    argv
+      .map((n) => Math.floor(Number(n)))
+      .sort()
+      .reverse()[1 + 2] // 2 is the number of default in args
+  );
 }
