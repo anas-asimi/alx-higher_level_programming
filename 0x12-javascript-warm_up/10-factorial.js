@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const { argv } = require("node:process");
+const { argv } = require('node:process');
 
 function factorial(a) {
 	if (a >= 2) {
