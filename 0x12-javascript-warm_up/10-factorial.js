@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const { argv } = process;
 
-function factorial(a) {
+function factorial (a) {
   if (a >= 2) {
     return factorial(a - 1) * a;
   }
