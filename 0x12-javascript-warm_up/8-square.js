@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const { argv } = require('node:process');
+const { argv } = process;
 
 if (argv[2] && !isNaN(Number(argv[2]))) {
   for (let i = 0; i < Math.floor(Number(argv[2])); i++) {
