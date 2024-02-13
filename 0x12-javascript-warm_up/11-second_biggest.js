@@ -5,9 +5,6 @@ if (argv.length < 4) {
   console.log(0);
 } else {
   console.log(
-    argv
-      .map((n) => Math.floor(Number(n)))
-      .sort()
-      .reverse()[1 + 2] // 2 is the number of default in args
+    Math.max(...argv.slice(2).map((n) => Math.floor(Number(n))).filter((n) => n !== Math.max(...argv.slice(2).map((n) => Math.floor(Number(n))))))
   );
 }
