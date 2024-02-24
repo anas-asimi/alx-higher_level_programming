@@ -13,8 +13,8 @@ class City(Base):
     """Represents a city for a MySQL database.
 
     Attributes:
-        id (str): The city's id.
         name (sqlalchemy.Integer): The city's name.
+        id (str): The city's id.
         state_id (sqlalchemy.String): The city's state id.
     """
     __tablename__ = "cities"
