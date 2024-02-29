@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""" 6-peak """
+""" 6-peak Neque porro quisquam est qui dolorem ipsum quia dolor sit amet """
 
 
 def find_peak(list_of_integers: list):
-    """find_peak"""
+    """find_peak Neque porro quisquam est qui dolorem ipsum quia dolor sit amet"""
     if len(list_of_integers) is 0:
         return None
 
