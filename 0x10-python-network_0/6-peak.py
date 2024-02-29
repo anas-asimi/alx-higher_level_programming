@@ -3,7 +3,7 @@
 
 
 def find_peak(list_of_integers: list):
-    """find_peak Neque porro quisquam est qui dolorem ipsum quia dolor sit amet"""
+    """find_peak Neque porro quisquam est qui dolorem ipsum quia"""
     if len(list_of_integers) is 0:
         return None
 
